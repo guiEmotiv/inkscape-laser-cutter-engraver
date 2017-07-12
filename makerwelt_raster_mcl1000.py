@@ -428,15 +428,15 @@ class GcodeExport(inkex.Effect):
             file_gcode = open(pos_file_gcode, 'w')  # Creo il file
 
             # Configurazioni iniziali standard Gcode
-            file_gcode.write(';"Generador de raster para MCL1000"\n; by Maker-Welt\n;')
+
             # HOMING
-            file_gcode.write('M117 Inicializando...!!; LCD \n')
-            file_gcode.write('G28; Homing\n')
-            file_gcode.write('G21; Set units to millimeters\n')
-            file_gcode.write('G90; Use absolute coordinates\n')
-            file_gcode.write('G92; Coordinate Offset\n')
-            file_gcode.write('M117 Listo para iniciar...; LCD \n')
-            file_gcode.write('M300 P1200 S150 ; Buzzer \n')
+            file_gcode.write('M117 Inicializando...!!\n')
+            file_gcode.write('G28\n')
+            file_gcode.write('G21\n')
+            file_gcode.write('G90\n')
+            file_gcode.write('G92\n')
+            file_gcode.write('M117 Listo para iniciar...\n')
+            file_gcode.write('M300 P1200 S150\n')
 
             # Creazione del Gcode
 
@@ -560,10 +560,10 @@ class GcodeExport(inkex.Effect):
             # Configurazioni finali standard Gcode
             file_gcode.write('G00 X0 Y0; home\n')
             # HOMING
-            file_gcode.write('G28; Set units to millimeters\n')
-            file_gcode.write('M18; Disable motors\n')
-            file_gcode.write('M117 Trabajo completado!!; LCD \n')
-            file_gcode.write('M300 P1200 S150 ; Buzzer \n')
+            file_gcode.write('G28\n')
+            file_gcode.write('M18\n')
+            file_gcode.write('M117 Trabajo completado!!\n')
+            file_gcode.write('M300 P1200 S150\n')
             file_gcode.close()  # Chiudo il file
 
 
