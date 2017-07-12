@@ -2409,9 +2409,11 @@ class laser_gcode(inkex.Effect):
     def export_gcode(self,gcode):
         gcode_pass = gcode
         for x in range(1,self.options.passes):
-            gcode += "G91\nG1 Z-" + self.options.pass_depth + "\nG90\n" + gcode_pass
+            gcode += "G28\nG91\nG1 Z-" + self.options.pass_depth + "\nG90\n" + gcode_pass
         f = open(self.options.directory+self.options.file, "w")
-        f.write(self.options.laser_off_command + " S0" + "\n" + self.header + "G1 F" + self.options.travel_speed + "\n" + gcode + self.footer)
+        f.write(self.options.laser_off_command + " S0" + "\n"+ "G28\n"+ "M117 Listo para iniciar...\n" + "M300 P1200 S150\n" + self.header + "G1 F" + self.options.travel_speed + "\n" + gcode + self.footer)
+        f.write('M117 Trabajo completado\n')
+        f.write('M300 P1200 S150\n')
         f.close()
 
     def __init__(self):
