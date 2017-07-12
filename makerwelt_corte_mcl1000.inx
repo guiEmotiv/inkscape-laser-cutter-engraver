@@ -15,7 +15,7 @@
     <item value="G20 (All units in inches)">in</item>
   	</param>
 
-	<param name="Velocidad de traslado" type="int" min="0" max="10000" _gui-text="Travel Speed (mm/min or in/min):">3000</param>
+	<param name="travel-speed" type="int" min="0" max="10000" _gui-text="Velocidad de traslado (mm/min or in/min):">3000</param>
 
 	<param name="laser-speed" type="int" min="0" max="4000" _gui-text="Velocidad de laser (mm/min or in/min):">100</param>
 
@@ -32,9 +32,6 @@
 
 	<param name="add-numeric-suffix-to-filename" type="boolean" _gui-text="agregar sufijo numerico al archivo">FALSE</param>
 
-	<param name="preview_only" type="boolean" gui-text="Solo vista previa">false</param>
-
-	<param name="p_only" type="description">Si "Solo vista previa" no genera los archivos con codigo G.</param>
 	
 	<effect needs-live-preview="false"> 
         <object-type>all</object-type>

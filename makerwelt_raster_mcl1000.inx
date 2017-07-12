@@ -3,7 +3,7 @@
 <!--  -->
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
 	<!-- Nome con cui compare l'estensione nel menù, fa casino con gli underscore _ -->
-	<name>Generador de raster para MCL1000</name>
+	<name>Generador de corte para MCL1000</name>
 	<!-- il campo ID deve essere univoco  -->
 	<id>com.makerwelt.makerwelt_raster_mcl1000</id>
 	
@@ -97,3 +97,5 @@
     	<command reldir="extensions" interpreter="python">makerwelt_raster_mcl1000.py</command>
     </script>
 </inkscape-extension>
+
+
