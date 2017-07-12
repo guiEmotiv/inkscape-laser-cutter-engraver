@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Comment -->
+<!--  -->
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+	<!-- Nome con cui compare l'estensione nel menù, fa casino con gli underscore _ -->
+	<name>Generador de raster para MCL1000</name>
+	<!-- il campo ID deve essere univoco  -->
+	<id>com.makerwelt.makerwelt_raster_mcl1000</id>
+	
+	<!-- Dipendenze, basta solo lo script python principale -->
+	<dependency type="executable" location="extensions">makerwelt_raster_mcl1000.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+	    	
+	<!-- Parametri di input per lo script python che vengono visualizzati nel widget creato da inkscape-->
+	<!-- vengono generati in ordine di come vengono scritti  -->
+	
+	<!-- Titolo e descrizione -->
+	<param name="Title" type="description">Generador de codigo G para MCL1000 V1.0</param>
+    
+	<!-- Opzioni di esportazione dell'immagine -->
+	<param name="directory" type="string"  gui-text="Exportar archivo"></param>
+
+	<param name="filename" type="string"  gui-text="nombre del archivo"></param>
+
+	<param name="add-numeric-suffix-to-filename" type="boolean" gui-text="Añadir sufijo numerico al nombre de archivo">true</param>
+		
+	<param name="bg_color" type="enum" gui-text="Reemplazar la transparencia de fondo con">
+		<_item value="#ffffff">Blanco</_item>
+		<_item value="#000000">Negro</_item>
+	</param>
+	
+	<param name="resolution" type="enum" gui-text="Resolucion">
+		<_item value="1">1 pixel/mm</_item>
+		<_item value="2">2 pixel/mm</_item>
+		<_item value="5">5 pixel/mm</_item>
+		<_item value="10">10 pixel/mm</_item>
+		<_item value="20">20 pixel/mm</_item>
+		<_item value="50">50 pixel/mm</_item>
+	</param>
+		
+	<!-- Come convertire in scala di grigi -->
+	<param name="grayscale_type" type="enum" gui-text="Convertir de Color a Escala de grises">
+		<_item value="1">0.21R + 0.71G + 0.07B</_item>
+		<_item value="2">(R+G+B)/3</_item>
+		<_item value="3">R</_item>
+		<_item value="4">G</_item>
+		<_item value="5">B</_item>
+		<_item value="6">Max Color</_item>
+		<_item value="7">Min Color</_item>
+	</param>
+	
+	<!-- Modalità di conversione in Bianco e Nero -->
+	<param name="conversion_type" type="enum" gui-text="Algoritmo de conversion B/N ">
+		<_item value="1">Metodo umbral fijo B/N</_item>
+		<_item value="2">Metodo umbral aleatorio B/N</_item>
+		<_item value="3">Semitonos</_item>
+		<_item value="4">Fila Semitonos</_item>
+		<_item value="5">Columna Semitonos</_item>
+		<_item value="6">Escala de grises</_item>
+	</param>
+	
+	<!-- Opzioni modalita -->
+	<param name="BW_threshold" type="int" min="1" max="254" gui-text="Valor umbral B/N ">128</param>
+	
+	<param name="grayscale_resolution" type="enum" gui-text="Resolucion de escala de grisses ">
+		<_item value="1">256</_item>
+		<_item value="2">128</_item>  <!-- 256/2 -->
+		<_item value="4">64</_item>  <!-- 256/4 -->
+		<_item value="8">32</_item>  <!-- 256/8 -->
+		<_item value="16">16</_item>  <!-- 256/16 -->
+		<_item value="32">8</_item>  <!-- 256/32 -->
+	</param>	
+
+	
+	<!-- Velocità Nero e spostamento -->
+	<param name="speed_ON" type="int" min="1" max="5000" gui-text="Velocidad de gravado">200</param>
+	
+	
+	<!-- Anteprima = Solo immagine BN -->
+	<param name="preview_only" type="boolean" gui-text="Solo vista previa">false</param>
+
+	<param name="p_only" type="description">Si "Solo vista previa" no genera los archivos con codigo G.</param>
+
+
+	<!-- Per togliere la casella Antepima diretta bisogna sostituire <effect> con <effect needs-live-preview="false">  -->
+	<!-- <effect> -->
+	<!-- 	<effect needs-live-preview="false"> -->
+	<effect needs-live-preview="false"> 
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Generate G-Code for Maker-Welt"/>
+        </effects-menu>
+    </effect>
+    
+	<!-- Script python  -->
+	<script>
+    	<command reldir="extensions" interpreter="python">makerwelt_raster_mcl1000.py</command>
+    </script>
+</inkscape-extension>
+
+
