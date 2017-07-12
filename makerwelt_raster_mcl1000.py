@@ -2,8 +2,8 @@
 # ----------------------------------------------------------------------------
 # Maintained by Maker-Welt (https://github.com/guiEmotiv/inkscape-laser-cutter-engraver)
 # Designed to run on Ramps 1.4 + Marlin firmware on a MCL1000.
-# Based on laser_raster_mcl1000.py gcode inkscape extension
-# Based on a script by gsoto from Maker-Welt
+# Based on raster2gcode.py gcode inkscape extension
+# Based on a script by 305engineering
 #
 # Copyright (C) 2017 gsoto, guillermo.soto@utec.edu.pe
 # based on raster2laser_gcode.py (C) 2014 305engineering...
