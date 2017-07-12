@@ -97,5 +97,3 @@
     	<command reldir="extensions" interpreter="python">makerwelt_raster_mcl1000.py</command>
     </script>
 </inkscape-extension>
-
-

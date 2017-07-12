@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+
+    <_name>Generador de corte para MCL1000</_name>
+    
+    <id>com.makerwelt.makerwelt_corte_mcl1000</id>
+
+	<dependency type="executable" location="extensions">makerwelt_corte_mcl1000.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+
+	<param name="Title" type="description">Generador de codigo G para MCL1000 V1.0</param>
+
+	<param name="unit" type="enum" _gui-text="All Units (mm or in):">
+    <item value="G21 (All units in mm)">mm</item>
+    <item value="G20 (All units in inches)">in</item>
+  	</param>
+
+	<param name="Velocidad de traslado" type="int" min="0" max="10000" _gui-text="Travel Speed (mm/min or in/min):">3000</param>
+
+	<param name="laser-speed" type="int" min="0" max="4000" _gui-text="Velocidad de laser (mm/min or in/min):">100</param>
+
+	<param name="laser-power" type="int" min="0" max="20000" _gui-text="Intensidad del Laser S# (0-255):">255</param>
+
+
+	<param name="passes" type="int" min="1" max="100" _gui-text="Pasadas:">1</param>
+
+	<param name="pass-depth" type="float" min="0" max="10" _gui-text="Profundida por pasadas (mm or in):">1</param>
+
+	<param name="directory" type="string" _gui-text="Exportar archivo"></param>
+
+	<param name="filename" type="string" _gui-text="nombre del archivo:">output.gcode</param>
+
+	<param name="add-numeric-suffix-to-filename" type="boolean" _gui-text="agregar sufijo numerico al archivo">FALSE</param>
+
+	<param name="preview_only" type="boolean" gui-text="Solo vista previa">false</param>
+
+	<param name="p_only" type="description">Si "Solo vista previa" no genera los archivos con codigo G.</param>
+	
+	<effect needs-live-preview="false"> 
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Generate G-Code for Maker-Welt"/>
+        </effects-menu>
+    </effect>
+
+	<script>
+		<command reldir="extensions" interpreter="python">makerwelt_corte_mcl1000.py</command>
+	</script>
+
+</inkscape-extension>
