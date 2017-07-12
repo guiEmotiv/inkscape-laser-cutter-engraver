@@ -430,7 +430,7 @@ class GcodeExport(inkex.Effect):
             # Configurazioni iniziali standard Gcode
 
             # HOMING
-            file_gcode.write('M117 Inicializando...!!\n')
+            file_gcode.write('M117 Inicializando...\n')
             file_gcode.write('G28\n')
             file_gcode.write('G21\n')
             file_gcode.write('G90\n')
