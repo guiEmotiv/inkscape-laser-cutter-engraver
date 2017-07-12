@@ -10,7 +10,7 @@
 
 	<param name="Title" type="description">Generador de codigo G para MCL1000 V1.0</param>
 
-	<param name="unit" type="enum" _gui-text="All Units (mm or in):">
+	<param name="unit" type="enum" _gui-text="Unidades (mm or in):">
     <item value="G21 (All units in mm)">mm</item>
     <item value="G20 (All units in inches)">in</item>
   	</param>
