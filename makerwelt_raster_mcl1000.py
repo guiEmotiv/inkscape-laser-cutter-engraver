@@ -110,19 +110,19 @@ class GcodeExport(inkex.Effect):
             ##CODICE SE ESISTE LA DIRECTORY
             # inkex.errormsg("OK") #DEBUG
 
-
-            # Aggiungo un suffisso al nomefile per non sovrascrivere dei file
-            if self.options.add_numeric_suffix_to_filename:
-                dir_list = os.listdir(self.options.directory)  # List di tutti i file nella directory di lavoro
-                temp_name = self.options.filename
+#Aggiungo un suffisso al nomefile per non sovrascrivere dei file
+            if self.options.add_numeric_suffix_to_filename :
+                dir_list = os.listdir(self.options.directory) #List di tutti i file nella directory di lavoro
+                temp_name =  self.options.filename
                 max_n = 0
-                for s in dir_list:
-                    r = re.match(r"^%s_0*(\d+)%s$" % (re.escape(temp_name), '.png'), s)
-                    if r:
-                        max_n = max(max_n, int(r.group(1)))
-                self.options.filename = temp_name + "_" + ("0" * (4 - len(str(max_n + 1))) + str(max_n + 1))
+                for s in dir_list :
+                    r = re.match(r"^%s_0*(\d+)%s$"%(re.escape(temp_name),'original.png' ), s)
+                    if r :
+                        max_n = max(max_n,int(r.group(1)))
+                self.options.filename = temp_name + "_" + ( "0"*(4-len(str(max_n+1))) + str(max_n+1) )
 
-            # genero i percorsi file da usare
+
+#genero i percorsi file da usare
 
             suffix = ""
             if self.options.conversion_type == 1:
@@ -151,7 +151,7 @@ class GcodeExport(inkex.Effect):
                 else:
                     suffix = "_Gray_"
 
-            pos_file_png_exported = os.path.join(self.options.directory, self.options.filename + suffix + "original.png")
+            pos_file_png_exported = os.path.join(self.options.directory, self.options.filename + "original.png")
             pos_file_png_BW = os.path.join(self.options.directory, self.options.filename + suffix + "generado.png")
             pos_file_gcode = os.path.join(self.options.directory, self.options.filename + suffix + "gcode.gcode")
 
@@ -185,11 +185,11 @@ class GcodeExport(inkex.Effect):
         elif self.options.resolution == 5:
             DPI = 127
         elif self.options.resolution == 10:
-            DPI = 200
+            DPI = 254
         elif self.options.resolution == 20:
-            DPI = 300
+            DPI = 508
         else:
-            DPI = 600
+            DPI = 1270
 
         command = "inkscape -C -e \"%s\" -b\"%s\" %s -d %s" % (
         pos_file_png_exported, bg_color, current_file, DPI)  # Comando da linea di comando per esportare in PNG
@@ -430,7 +430,7 @@ class GcodeExport(inkex.Effect):
             # Configurazioni iniziali standard Gcode
 
             # HOMING
-            file_gcode.write('M117 Inicializando...\n')
+            file_gcode.write('M117 Inicializando...!!\n')
             file_gcode.write('G28\n')
             file_gcode.write('G21\n')
             file_gcode.write('G90\n')

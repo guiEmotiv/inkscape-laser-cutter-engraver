@@ -2575,8 +2575,7 @@ class laser_gcode(inkex.Effect):
 
             if self.options.unit == "G21 (All units in mm)" :
                 self.header += "G21\n"
-            elif self.options.unit == "G20 (All units in inches)" :
-                self.header += "G20\n"
+
         else:
             self.error(_("Directorio no exite! Porfavor especifique el correcto directorio!"),"error")
             return False
